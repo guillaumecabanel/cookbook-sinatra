@@ -1,0 +1,17 @@
+<h1>Welcome to your cookbook!</h1>
+<% if @recipes.empty? %>
+  <h2>No recipe yet... Add one!</h2>
+<% else %>
+  <h2>Your recipes:</h2>
+  <ol>
+    <% @recipes.each_with_index do |recipe, index| %>
+      <li>
+        <h3><%=recipe.name%> (<%=recipe.cooking_time%>, <%=recipe.difficulty%>):</h3>
+        <p><%=recipe.description%></p>
+        <a href="recipes/<%=index%>/delete"><button type="button" class="btn btn-danger btn-sm">Delete</button></a>
+      </li>
+    <% end %>
+  </ol>
+<% end %>
+
+<a href="recipes/new">Add a new recipe</a>

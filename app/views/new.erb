@@ -1,0 +1,34 @@
+<h2>Add a recipe</h2>
+
+<form action="/recipes/create" method="post">
+
+  <div class="form-group">
+    <div class="input-group">
+      <label for="name" class="input-group-addon">Name</label>
+      <input class="form-control" placeholder="Title of the recipe" name="name" type="text">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <label for="difficulty" class="input-group-addon">Difficulty</label>
+      <input class="form-control" placeholder="Easy, medium, difficult..." name="difficulty">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <label for="cooking_time" class="input-group-addon">Cooking time</label>
+      <input class="form-control" placeholder="Cooking time" name="cooking_time">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" placeholder="Description" name="description"></textarea>
+    </div>
+  </div>
+
+  <input class="btn btn-success" type="submit" value="Save recipe">
+</form>
