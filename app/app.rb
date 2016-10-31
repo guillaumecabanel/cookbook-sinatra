@@ -41,3 +41,27 @@ get '/recipes/:id/delete' do
   COOKBOOK.remove_recipe(params[:id].to_i)
   redirect '/'
 end
+
+get '/marmiton/import' do
+  erb :import_from_marmiton
+end
+
+get '/marmiton/search' do
+  @results = MarmitonFetcher.fetch_list(params[:keyword])
+  @keyword = params[:keyword]
+  erb :marmiton_index
+end
+
+get 'marmiton/:id/save' do
+  # new_recipe = recipe_from_details(list[index])
+  # @cookbook.add_recipe(new_recipe)
+  csv_file = File.join(__dir__, 'recipes.csv')
+  COOKBOOK = Cookbook.new(csv_file)
+  new_recipe = Recipe.new(@results[params[:id].to_i][:title],
+                          @results[params[:id].to_i][:description],
+                          @results[params[:id].to_i][:cooking_time],
+                          @results[params[:id].to_i][:difficulty])
+
+  COOKBOOK.add_recipe(new_recipe)
+  redirect '/'
+end

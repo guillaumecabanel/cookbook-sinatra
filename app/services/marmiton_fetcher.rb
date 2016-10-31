@@ -47,7 +47,7 @@ class MarmitonFetcher
 
   def self.details_to_hash(title, details)
     {
-      title: title,
+      name: title,
       description: details[0],
       cooking_time: details[1].strip,
       difficulty: details[2]

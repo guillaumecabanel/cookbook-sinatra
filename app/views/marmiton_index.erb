@@ -1,0 +1,16 @@
+<h2>Results for "<%=@keyword%>":</h2>
+<div class="alert alert-info" role="alert">Select the recipe you want to save.</div>
+<ol>
+  <% @results.each do |recipe| %>
+
+  <form action="/recipes/create" method="post">
+  <input class="hidden" name="name" type="text" value="<%=recipe[:name]%>">
+  <input class="hidden" name="description" type="text" value="<%=recipe[:description]%>">
+  <input class="hidden" name="difficulty" type="text" value="<%=recipe[:difficulty]%>">
+  <input class="hidden" name="cooking_time" type="text" value="<%=recipe[:cooking_time]%>">
+    <li>
+      <input class="btn btn-link" type="submit" value="<%=recipe[:name]%>">
+    </li>
+  </form>
+  <% end %>
+</ol>
